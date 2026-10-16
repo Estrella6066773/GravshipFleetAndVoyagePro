@@ -4,9 +4,9 @@
   <!--
     文本登记表 [A7] PawnKindDef/ShipCorePersona
     挂靠：无。独立词条
-    显示：飞船主脑这一人物种类的名字，出现在她的人物面板与调试工具里
+    显示：这一人物种类的名字，出现在她的人物面板与调试工具里
     英文原文写在 Defs/PawnKinds_ShipCorePersona.xml 里，这里只放简体中文。
   -->
-  <ShipCorePersona.label>飞船主脑</ShipCorePersona.label>
-  <ShipCorePersona.labelPlural>飞船主脑</ShipCorePersona.labelPlural>
+  <ShipCorePersona.label>人工智能</ShipCorePersona.label>
+  <ShipCorePersona.labelPlural>人工智能</ShipCorePersona.labelPlural>
 </LanguageData>

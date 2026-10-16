@@ -7,7 +7,7 @@
   <supportedVersions>
     <li>1.7</li>
   </supportedVersions>
-  <description>本模组横跨两份模组，功能也分成两半，装了哪一份就只让对应的那一半生效。两份都不是必需：只装一份，另外一半安静停用，不报错。原来的飞船核心人格模组请停用，二者内容相同，同时启用会重复。
+  <description>本模组分别优化了Gravship Fleet和Gravship Voyage，会在安装对应mod时自动生效。
 
 【逆重舰队优化】需要 Gravship Fleet：
 

@@ -7,6 +7,6 @@
     显示：飞船主脑健康面板里的那条状态，以及信息卡上的说明
     英文原文写在 Defs/Hediffs_ShipCorePersona.xml 的 label 与 description 里，这里只放简体中文。
   -->
-  <ShipCorePersonaBound.label>飞船主脑</ShipCorePersonaBound.label>
+  <ShipCorePersonaBound.label>人工智能</ShipCorePersonaBound.label>
   <ShipCorePersonaBound.description>飞船电脑核心里寄宿着这名人工智能。</ShipCorePersonaBound.description>
 </LanguageData>

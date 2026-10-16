@@ -14,9 +14,7 @@
         挂靠：无。独立词条
         显示：选中飞船主脑时，她那条征召命令的名称与说明
 
-    [A2] ShipCorePersona_MissingIngredient   本文件
-        挂靠：无。独立词条
-        显示：给飞船主脑做手术时，材料不齐的失败原因
+    [A2] 已废止。原「缺少手术材料」随手术安装流程一并移除，编号不再使用。
 
     [A3] ShipCorePersona_NeedsHeavyOrSubstructure   本文件
         挂靠：无。独立词条
@@ -37,7 +35,6 @@
 
   <ShipCorePersona_Draft>征召</ShipCorePersona_Draft>
   <ShipCorePersona_DraftDesc>征召这台飞船电脑核心里的飞船主脑。</ShipCorePersona_DraftDesc>
-  <ShipCorePersona_MissingIngredient>缺少手术材料</ShipCorePersona_MissingIngredient>
   <ShipCorePersona_NeedsHeavyOrSubstructure>要放在重型地面上，或放在逆重飞船基架上</ShipCorePersona_NeedsHeavyOrSubstructure>
   <ShipCorePersona_StoreImplant>放入{0}</ShipCorePersona_StoreImplant>
   <ShipCorePersona_RetrieveImplant>取出{0}</ShipCorePersona_RetrieveImplant>

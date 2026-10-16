@@ -35,14 +35,14 @@
 
   <GravshipFleetPro_SettingsCategory>逆重舰队 Pro</GravshipFleetPro_SettingsCategory>
 
-  <GravshipFleetPro_Setting_NeedsFleet>这一页设置属于舰队一半，需要 Gravship Fleet。没有启用它时，舰队一半停用，下面的设置不起作用。</GravshipFleetPro_Setting_NeedsFleet>
+  <GravshipFleetPro_Setting_NeedsFleet>以下设置需要 Gravship Fleet。没有启用此mod时，下面的设置无效。</GravshipFleetPro_Setting_NeedsFleet>
 
-  <GravshipFleetPro_Setting_RetainMap>还有另一台逆重引擎时保留地图</GravshipFleetPro_Setting_RetainMap>
-  <GravshipFleetPro_Setting_RetainMapDesc>关闭后恢复原版行为：只要发射逆重飞船就弃置当前地图，留在图上的人和建筑一并失去。</GravshipFleetPro_Setting_RetainMapDesc>
+  <GravshipFleetPro_Setting_RetainMap>还有其他逆重引擎时保留地图</GravshipFleetPro_Setting_RetainMap>
+  <GravshipFleetPro_Setting_RetainMapDesc>关闭后恢复原版行为：只要发射逆重飞船就弃置当前地图.</GravshipFleetPro_Setting_RetainMapDesc>
 
-  <GravshipFleetPro_Setting_CollapseDelay>起飞后延迟塌落：{0} 秒</GravshipFleetPro_Setting_CollapseDelay>
-  <GravshipFleetPro_Setting_CollapseDelayDesc>厚岩顶立起来之后过多久塌落成岩石。设为 0 就是起飞结束立刻塌。</GravshipFleetPro_Setting_CollapseDelayDesc>
+  <GravshipFleetPro_Setting_CollapseDelay>起飞后延迟坍塌：{0} 秒</GravshipFleetPro_Setting_CollapseDelay>
+  <GravshipFleetPro_Setting_CollapseDelayDesc>厚岩顶生成后过多久坍塌。</GravshipFleetPro_Setting_CollapseDelayDesc>
 
-  <GravshipFleetPro_MapRetained>另一台逆重引擎的场域钉住了地面：地图保留，起飞点塌陷。</GravshipFleetPro_MapRetained>
+  <GravshipFleetPro_MapRetained>有一个逆重引擎锚定了此地图。/GravshipFleetPro_MapRetained>
 
 </LanguageData>
