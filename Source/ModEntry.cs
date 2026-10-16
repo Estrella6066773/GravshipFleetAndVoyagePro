@@ -15,7 +15,7 @@ namespace ShipCorePersona
     internal static class ModEntry
     {
         // 与 About/About.xml 的 packageId 一致。
-        public const string HarmonyId = "Estrella6066.GravshipFleetPro";
+        public const string HarmonyId = "Estrella6066.GravshipFleetAndVoyagePro";
 
         static ModEntry()
         {

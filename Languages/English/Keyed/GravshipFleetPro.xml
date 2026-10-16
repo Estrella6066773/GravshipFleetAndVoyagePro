@@ -7,7 +7,10 @@
     ═══════════════════════════════════════════════════════════════════
     Mirrors Languages/ChineseSimplified/Keyed/GravshipFleetPro.xml key for key.
     Slot numbering is the same there; see that file for the full registry,
-    including the two description texts that live in DefInjected.
+    including the grav engine description text that lives in DefInjected.
+
+    The grav anchor's own text is deliberately left alone: this mod never
+    rewrites GravAnchor's label or description.
   -->
 
   <GravshipFleetPro_SettingsCategory>Gravship Fleet Pro</GravshipFleetPro_SettingsCategory>

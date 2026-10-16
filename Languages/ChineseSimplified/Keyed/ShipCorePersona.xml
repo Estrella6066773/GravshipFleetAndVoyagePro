@@ -7,7 +7,8 @@
     ═══════════════════════════════════════════════════════════════════
     并入本模组的人格内容，面向玩家的文本全部在这里与 DefInjected 里，
     代码中一律用 .Translate() 取用，不写死任何句子。
-    逆重引擎、逆重锚、模组设置、保留地图消息的登记表在 GravshipFleetPro.xml。
+    逆重引擎与模组设置、保留地图消息的登记表在 GravshipFleetPro.xml。
+    逆重锚的文本本模组一律不动。
 
     [A1] ShipCorePersona_Draft / ShipCorePersona_DraftDesc   本文件
         挂靠：无。独立词条
@@ -35,7 +36,7 @@
   -->
 
   <ShipCorePersona_Draft>征召</ShipCorePersona_Draft>
-  <ShipCorePersona_DraftDesc>征召这台飞船电脑核心里的飞船主脑。她不能移动。</ShipCorePersona_DraftDesc>
+  <ShipCorePersona_DraftDesc>征召这台飞船电脑核心里的飞船主脑。</ShipCorePersona_DraftDesc>
   <ShipCorePersona_MissingIngredient>缺少手术材料</ShipCorePersona_MissingIngredient>
   <ShipCorePersona_NeedsHeavyOrSubstructure>要放在重型地面上，或放在逆重飞船基架上</ShipCorePersona_NeedsHeavyOrSubstructure>
   <ShipCorePersona_StoreImplant>放入{0}</ShipCorePersona_StoreImplant>

@@ -11,22 +11,23 @@
     [1] GravEngine.description   见 Languages/ChineseSimplified/DefInjected/ThingDef/GravEngine.xml
         挂靠：原版逆重引擎描述全文末尾，紧接在「若未建造逆重锚，发射逆重飞船将永久弃置当前地图。」之后
         显示：逆重引擎的信息卡
-        内容：另一台逆重引擎的场域稳定作用，含厚岩顶与随后塌落
+        内容：没有逆重锚时可以拿另一台逆重引擎顶替，效果远不如逆重锚；
+              起飞时飞船下方的地面仍会被撕裂，永久留下高耸的山体
 
-    [2] GravAnchor.description   见 Languages/ChineseSimplified/DefInjected/ThingDef/GravAnchor.xml
-        挂靠：原版逆重锚描述全文末尾
-        显示：逆重锚的信息卡
-        内容：写明逆重锚的优先级高于逆重引擎的场域稳定作用
-
-    [3] GravshipFleetPro_MapRetained   本文件
+    [2] GravshipFleetPro_MapRetained   本文件
         挂靠：无。独立词条，不接在任何原版文本后面
         显示：保留地图时的一条屏幕消息
 
-    [4] GravshipFleetPro_SettingsCategory 及以下 5 条设置项文本   本文件
+    [3] GravshipFleetPro_SettingsCategory 及以下 5 条设置项文本   本文件
         挂靠：无。独立词条
         显示：模组设置窗口
         其中 GravshipFleetPro_Setting_NeedsFleet 只在没装 Gravship Fleet 时显示，
         说明舰队一半停用、其余设置不起作用。
+
+    逆重锚的文本不动：本模组不改 GravAnchor 的 label 与 description，也不为它补任何句子。
+    逆重锚仍然是最完整的压制手段，只不过它的说明由原版（或玩家自己的汉化包）负责。
+    逆重引擎描述里那句「另一台逆重引擎的场域会代替逆重锚」已经写明了这一层先后关系，
+    不必再去改写逆重锚那一侧。
 
     塌方本身不另造文本：沿用原版的 RoofCollapsed 信件与 TheseThingsCrushed 列表。
     英文对照在 Languages/English 下的同名文件里，键名一一对应。
