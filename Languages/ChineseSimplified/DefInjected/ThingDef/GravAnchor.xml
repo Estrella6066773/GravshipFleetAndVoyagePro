@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════════
+    文本登记表 [2]  GravAnchor.description
+    ═══════════════════════════════════════════════════════════════════
+    挂靠位置：ThingDef/GravAnchor.description 的全文末尾。
+    显示位置：逆重锚的信息卡。
+    内容要点：逆重锚的优先级高于逆重引擎的场域稳定作用。
+
+    原版全文抄自 RimWorld 1.7.4977
+      Data/Odyssey/Defs/ThingDefs_Buildings/Buildings_Gravship.xml
+      中文措辞取自本工作区 临时汉化重载 的同一 def。
+  -->
+  <GravAnchor.description>防止逆重飞船发射时摧毁所在地图。\n\n该装置通过被动约束广域波动引力场，使逆重飞船能沿共振边界发射，从而消除发射造成的破坏性影响。因其锚定效应，该建筑无法在逆重飞船上建造。\n\n逆重锚的压制最为彻底，优先级高于逆重引擎的场域稳定作用：只要地图上有逆重锚，发射既不会弃置地图，也不会在起飞点留下任何破坏。</GravAnchor.description>
+
+</LanguageData>

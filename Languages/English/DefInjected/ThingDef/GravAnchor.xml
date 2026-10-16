@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════════
+    Text registry [2]  GravAnchor.description
+    ═══════════════════════════════════════════════════════════════════
+    Anchored after the last line of the vanilla description.
+    Shown on the grav anchor's info card.
+    Point of the added paragraph: a grav anchor outranks the stabilizing
+    field of a grav engine.
+
+    The vanilla text is copied verbatim from RimWorld 1.7.4977
+    (Data/Odyssey/Defs/ThingDefs_Buildings/Buildings_Gravship.xml).
+  -->
+  <GravAnchor.description>Prevents the local map from being destroyed during a gravship launch.\n\nGrav anchors passively reduce unstable gravitation shear in a large area, which prevents the damaging effects of a gravship launch. It can't be constructed on the gravship itself because it would prevent flight entirely.\n\nA grav anchor suppresses the launch most completely, taking priority over the stabilizing field of a grav engine: as long as the map holds a grav anchor, a launch neither abandons the map nor leaves any damage at the launch site.</GravAnchor.description>
+
+</LanguageData>

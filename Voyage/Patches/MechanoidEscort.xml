@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  人格一半（需要 Gravship Voyage）：飞船主脑的机械族在保卫模式下的走位。
+
+  原版「Mechanoid」思考树的保卫模式一段，依次是：离开地图时跟着主脑、护卫主脑、跟随主脑、
+  主脑睡觉时待在旁边、在主脑附近游荡。后三条都是围着主脑本人几格打转。
+  这里在「护卫主脑」之后插一条本模组的走位：只要主脑连上了逆重飞船，机械族就改成在那艘船的
+  有效基架上待命，也就是起飞时会被一起带走的那片基架。插在护卫之后、跟随之前，
+  所以遇敌开火仍然优先；主脑没有船时这条返回无效格，原版的跟随与游荡照旧接管。
+
+  原版这一段本身带 MayRequire="Ludeon.RimWorld.Biotech"，本模组已经依赖 Biotech，
+  所以这里不再重复判 DLC。基础游戏版本升级若改了这段结构，节点找不到时补丁会报错，容易发现。
+
+  1.7 把 PatchOperationInsert 的 Order 枚举从 After／Before 换成了 Append／Prepend，
+  含义是倒过来的：Append 才等于插在被匹配节点之后（InsertAfter），Prepend 是插在它之前。
+  写 <order>After</order> 会在加载时解析失败，整条补丁作废，日志里只有一句解析错误。
+-->
+<Patch>
+
+  <Operation Class="PatchOperationInsert">
+    <xpath>/Defs/ThinkTreeDef[defName="Mechanoid"]//li[workMode="Escort"]/subNodes/li[@Class="JobGiver_AIDefendOverseer"]</xpath>
+    <value>
+      <li Class="ShipCorePersona.JobGiver_WanderShipSubstructure" />
+    </value>
+    <order>Append</order>
+  </Operation>
+
+</Patch>

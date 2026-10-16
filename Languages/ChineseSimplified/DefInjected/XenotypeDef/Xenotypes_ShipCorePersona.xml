@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--
+    文本登记表 [A8] XenotypeDef/ShipCorePersonaXenotype
+    挂靠：无。独立词条
+    显示：飞船主脑「人物」面板里的异种人一节，以及异种人界面上的说明
+    英文原文写在 Defs/Xenotypes_ShipCorePersona.xml 里，这里只放简体中文。
+  -->
+
+  <ShipCorePersonaXenotype.label>核心人格</ShipCorePersonaXenotype.label>
+  <ShipCorePersonaXenotype.description>核心人格是飞船主脑的异种人。她的异种基因是空的，系谱基因也是空的。</ShipCorePersonaXenotype.description>
+  <ShipCorePersonaXenotype.descriptionShort>飞船主脑的异种人。异种基因和系谱基因都是空的。</ShipCorePersonaXenotype.descriptionShort>
+
+</LanguageData>

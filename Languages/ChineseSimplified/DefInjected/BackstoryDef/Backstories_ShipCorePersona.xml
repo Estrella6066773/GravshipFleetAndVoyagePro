@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--
+    文本登记表 [A6] BackstoryDef/ShipCorePersona_Childhood 与 ShipCorePersona_Adulthood
+    挂靠：无。独立词条
+    显示：飞船主脑「人物」面板里的幼年背景与成年背景，各自的标题与描述
+    英文原文写在 Defs/Backstories_ShipCorePersona.xml 里，这里只放简体中文。
+  -->
+
+  <ShipCorePersona_Childhood.title>人格核心</ShipCorePersona_Childhood.title>
+  <ShipCorePersona_Childhood.titleShort>人格核心</ShipCorePersona_Childhood.titleShort>
+  <ShipCorePersona_Childhood.description>她原先是一枚人格核心。</ShipCorePersona_Childhood.description>
+
+  <ShipCorePersona_Adulthood.title>飞船主脑</ShipCorePersona_Adulthood.title>
+  <ShipCorePersona_Adulthood.titleShort>飞船主脑</ShipCorePersona_Adulthood.titleShort>
+  <ShipCorePersona_Adulthood.description>飞船电脑核心里寄宿着这名人工智能。</ShipCorePersona_Adulthood.description>
+
+</LanguageData>

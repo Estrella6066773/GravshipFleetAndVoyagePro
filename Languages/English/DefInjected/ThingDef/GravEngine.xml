@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════════
+    Text registry [1]  GravEngine.description
+    ═══════════════════════════════════════════════════════════════════
+    Anchored after the last line of the vanilla description, i.e. right after
+    "Without a grav anchor, launching a gravship will abandon your current map."
+    Shown on the grav engine's info card.
+
+    The vanilla text is copied verbatim from RimWorld 1.7.4977
+    (Data/Odyssey/Defs/ThingDefs_Buildings/Buildings_Gravship.xml) because
+    RimWorld only allows replacing a description wholesale, never appending to it.
+    Diff the first three paragraphs against that file after a game update.
+  -->
+  <GravEngine.description>The ultratech heart of a gravship. The grav engine generates lift by inverting and intensifying the effect of gravity in a field around itself. This engine can lift upwards, but does not produce forward thrust. It can't function far from a large gravity well like a planet, so it is useless for interplanetary travel.\n\nWhen launched, anything on substructure that's connected to the grav engine will be transported to a new map. Without a grav anchor, launching a gravship will abandon your current map.\n\nGlitterworld engineers use gravships to launch orbital platforms and build skyrippers. They require massive and hyper-specialized facilities to produce, making them a rare sight outside of glitterworlds.\n\nIf another grav engine is still running on this map, its field pins the ground down in place of a grav anchor: the launch won't abandon the map, but it tears the launch site out by the roots - thick mountain roof rises over the old substructure and then collapses into bare rock. Only when no second grav engine remains does launching a gravship abandon the map as described above.</GravEngine.description>
+
+</LanguageData>

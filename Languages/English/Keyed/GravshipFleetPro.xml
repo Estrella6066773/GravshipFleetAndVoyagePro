@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════════
+    Text registry (English)
+    ═══════════════════════════════════════════════════════════════════
+    Mirrors Languages/ChineseSimplified/Keyed/GravshipFleetPro.xml key for key.
+    Slot numbering is the same there; see that file for the full registry,
+    including the two description texts that live in DefInjected.
+  -->
+
+  <GravshipFleetPro_SettingsCategory>Gravship Fleet Pro</GravshipFleetPro_SettingsCategory>
+
+  <GravshipFleetPro_Setting_NeedsFleet>These settings belong to the fleet half, which needs Gravship Fleet. While it is not active, the fleet half is off and the settings below do nothing.</GravshipFleetPro_Setting_NeedsFleet>
+
+  <GravshipFleetPro_Setting_RetainMap>Keep the map while another grav engine remains</GravshipFleetPro_Setting_RetainMap>
+  <GravshipFleetPro_Setting_RetainMapDesc>Turn this off for vanilla behavior: launching a gravship abandons the current map, and everyone and everything left on it is lost.</GravshipFleetPro_Setting_RetainMapDesc>
+
+  <GravshipFleetPro_Setting_CollapseDelay>Collapse delay after takeoff: {0} s</GravshipFleetPro_Setting_CollapseDelay>
+  <GravshipFleetPro_Setting_CollapseDelayDesc>How long the thick mountain roof stands before it collapses into rock. Set to 0 to collapse the moment takeoff ends.</GravshipFleetPro_Setting_CollapseDelayDesc>
+
+  <GravshipFleetPro_MapRetained>Another grav engine's field pinned the ground: the map is kept, and the launch site collapsed.</GravshipFleetPro_MapRetained>
+
+</LanguageData>

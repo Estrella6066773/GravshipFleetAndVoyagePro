@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════════
+    Text registry (English) - computer core / persona part
+    ═══════════════════════════════════════════════════════════════════
+    Mirrors Languages/ChineseSimplified/Keyed/ShipCorePersona.xml key for key.
+    Slot numbering is the same there; see that file for what each string
+    attaches to and where it shows. Texts numbered A6 and up live in
+    DefInjected folders, with their English source written inline in Defs.
+  -->
+
+  <ShipCorePersona_Draft>Draft</ShipCorePersona_Draft>
+  <ShipCorePersona_DraftDesc>Draft the ship mind. The ship mind cannot move.</ShipCorePersona_DraftDesc>
+  <ShipCorePersona_MissingIngredient>missing surgery materials</ShipCorePersona_MissingIngredient>
+  <ShipCorePersona_NeedsHeavyOrSubstructure>must be placed on heavy terrain or gravship substructure</ShipCorePersona_NeedsHeavyOrSubstructure>
+  <ShipCorePersona_StoreImplant>store {0}</ShipCorePersona_StoreImplant>
+  <ShipCorePersona_RetrieveImplant>retrieve {0}</ShipCorePersona_RetrieveImplant>
+  <ShipCorePersona_GuardShipSubstructure>guarding the ship.</ShipCorePersona_GuardShipSubstructure>
+</LanguageData>

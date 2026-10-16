@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <PawnKindDef>
+    <defName>ShipCorePersona</defName>
+    <label>ship mind</label>
+    <labelPlural>ship minds</labelPlural>
+    <fixedChildBackstories>
+      <li>ShipCorePersona_Childhood</li>
+    </fixedChildBackstories>
+    <fixedAdultBackstories>
+      <li>ShipCorePersona_Adulthood</li>
+    </fixedAdultBackstories>
+    <race>Human</race>
+    <!-- 人类种类必须写初始意志和初始抵抗，否则定义检查报错。意志 0~0 对照 Core 的 BasePlayerPawnKind；抵抗 0~0 对照 Core 的 SpaceRefugee_Clothed。PersonaAppearance.Generate 用这个种类生成玩家派系里的飞船主脑。 -->
+    <initialWillRange>0~0</initialWillRange>
+    <initialResistanceRange>0~0</initialResistanceRange>
+    <combatPower>40</combatPower>
+    <chemicalAddictionChance>0</chemicalAddictionChance>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+    <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+  </PawnKindDef>
+
+</Defs>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  横跨两份模组，按装了哪一份决定加载哪些目录。
+
+  根目录始终加载：Defs 与 Languages 不分半（定义是惰性的，只有人格存在时才会被用到，
+  而让人格存在的部件全在补丁里；ShipCorePersonaDefOf 又是 [DefOf] 类，定义没加载时读它会直接报错）。
+  补丁只有 Voyage 这一处，装的是人格一半；舰队一半全在程序集里，没有 XML。
+
+  Voyage 目录只在启用 Gravship Voyage 时加载，里面是改造飞船电脑核心的那份补丁。
+  没装 Voyage 时它完全不加载，电脑核心保持原样。
+
+  1.6 与 1.7 都列出：只写一个版本时游戏会回退到上一版本去读，写全了更清楚。
+-->
+<loadFolders>
+  <v1.6>
+    <li>/</li>
+    <li IfModActive="asunib.GravshipVoyage">Voyage</li>
+  </v1.6>
+  <v1.7>
+    <li>/</li>
+    <li IfModActive="asunib.GravshipVoyage">Voyage</li>
+  </v1.7>
+</loadFolders>

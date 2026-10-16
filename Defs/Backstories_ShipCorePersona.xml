@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BackstoryDef>
+    <defName>ShipCorePersona_Childhood</defName>
+    <identifier>ShipCorePersona_Childhood</identifier>
+    <slot>Childhood</slot>
+    <title>persona core</title>
+    <titleShort>persona core</titleShort>
+    <description>This being came from a persona core.</description>
+    <shuffleable>false</shuffleable>
+    <spawnCategories>
+      <li>ShipCorePersona</li>
+    </spawnCategories>
+  </BackstoryDef>
+
+  <BackstoryDef>
+    <defName>ShipCorePersona_Adulthood</defName>
+    <identifier>ShipCorePersona_Adulthood</identifier>
+    <slot>Adulthood</slot>
+    <title>ship mind</title>
+    <titleShort>ship mind</titleShort>
+    <description>An artificial intelligence housed in a ship computer core.</description>
+    <skillGains>
+      <Crafting>10</Crafting>
+    </skillGains>
+    <shuffleable>false</shuffleable>
+    <spawnCategories>
+      <li>ShipCorePersona</li>
+    </spawnCategories>
+  </BackstoryDef>
+
+</Defs>

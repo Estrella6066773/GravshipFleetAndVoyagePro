@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════════
+    文本登记表（电脑核心 / 人格部分）
+    ═══════════════════════════════════════════════════════════════════
+    并入本模组的人格内容，面向玩家的文本全部在这里与 DefInjected 里，
+    代码中一律用 .Translate() 取用，不写死任何句子。
+    逆重引擎、逆重锚、模组设置、保留地图消息的登记表在 GravshipFleetPro.xml。
+
+    [A1] ShipCorePersona_Draft / ShipCorePersona_DraftDesc   本文件
+        挂靠：无。独立词条
+        显示：选中飞船主脑时，她那条征召命令的名称与说明
+
+    [A2] ShipCorePersona_MissingIngredient   本文件
+        挂靠：无。独立词条
+        显示：给飞船主脑做手术时，材料不齐的失败原因
+
+    [A3] ShipCorePersona_NeedsHeavyOrSubstructure   本文件
+        挂靠：无。独立词条
+        显示：放置飞船电脑核心时，地面不合要求的原因
+
+    [A4] ShipCorePersona_StoreImplant / ShipCorePersona_RetrieveImplant   本文件
+        挂靠：无。独立词条，{0} 是植入物的名字
+        显示：把机械师植入物放进电脑核心、以及从里面取出来的右键菜单项
+
+    [A5] ShipCorePersona_GuardShipSubstructure   本文件
+        挂靠：原版 Biotech 的 Escorting（护卫某人）。原版是机械族在保卫模式下跟随机械师时的行动提示
+        显示：保卫模式下，飞船主脑的机械族在飞船基架上待命时，屏幕左下角的行动提示
+
+    编号 A6 起的文本按 def 分散在 DefInjected 下，各文件头部写明显示位置。
+    Keyed 的英文对照在 Languages/English/Keyed/ShipCorePersona.xml，键名一一对应；
+    DefInjected 的英文原文写在 Defs 下的源文件里。
+  -->
+
+  <ShipCorePersona_Draft>征召</ShipCorePersona_Draft>
+  <ShipCorePersona_DraftDesc>征召这台飞船电脑核心里的飞船主脑。她不能移动。</ShipCorePersona_DraftDesc>
+  <ShipCorePersona_MissingIngredient>缺少手术材料</ShipCorePersona_MissingIngredient>
+  <ShipCorePersona_NeedsHeavyOrSubstructure>要放在重型地面上，或放在逆重飞船基架上</ShipCorePersona_NeedsHeavyOrSubstructure>
+  <ShipCorePersona_StoreImplant>放入{0}</ShipCorePersona_StoreImplant>
+  <ShipCorePersona_RetrieveImplant>取出{0}</ShipCorePersona_RetrieveImplant>
+  <ShipCorePersona_GuardShipSubstructure>护卫飞船</ShipCorePersona_GuardShipSubstructure>
+</LanguageData>

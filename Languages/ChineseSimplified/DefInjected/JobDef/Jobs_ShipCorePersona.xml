@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--
+    文本登记表 [A10] 三条工作的 JobDef 文本
+    挂靠：无。独立词条，{TargetA}、{TargetB} 由游戏自动替换
+    显示：殖民者正在做这件事时，屏幕左下角的行动提示
+    对应关系：OperateShipCorePersona 给飞船主脑做手术；
+              StoreShipCoreImplant 把植入物放进电脑核心；
+              RetrieveShipCoreImplant 从电脑核心里取出植入物
+    英文原文写在 Defs/Jobs_ShipCorePersona.xml 里，这里只放简体中文。
+  -->
+  <OperateShipCorePersona.reportString>正在给{TargetA}里的飞船主脑做手术。</OperateShipCorePersona.reportString>
+  <StoreShipCoreImplant.reportString>正在把{TargetB}放进{TargetA}。</StoreShipCoreImplant.reportString>
+  <RetrieveShipCoreImplant.reportString>正在从{TargetA}里取出植入物。</RetrieveShipCoreImplant.reportString>
+</LanguageData>

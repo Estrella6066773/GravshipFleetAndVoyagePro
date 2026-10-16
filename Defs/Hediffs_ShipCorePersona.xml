@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 用来标记飞船主脑。不能把移动设成 0，否则原版会把她当成倒地并失去知觉，能力就放不出来。 -->
+  <HediffDef>
+    <defName>ShipCorePersonaBound</defName>
+    <hediffClass>ShipCorePersona.Hediff_ShipCorePersonaBound</hediffClass>
+    <label>housed in computer core</label>
+    <description>An artificial intelligence housed in a ship computer core.</description>
+    <isBad>false</isBad>
+    <preventsDeath>true</preventsDeath>
+    <everCurableByItem>false</everCurableByItem>
+    <stages>
+      <li>
+        <hungerRateFactor>0</hungerRateFactor>
+        <restFallFactor>0</restFallFactor>
+        <painFactor>0</painFactor>
+        <!-- 心情固定在最高。想法全部不计。同时禁止精神崩溃。 -->
+        <overrideMoodBase>1</overrideMoodBase>
+        <pctAllThoughtNullification>1</pctAllThoughtNullification>
+        <blocksMentalBreaks>true</blocksMentalBreaks>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

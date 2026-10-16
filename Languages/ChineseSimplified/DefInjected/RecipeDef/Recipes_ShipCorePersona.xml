@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--
+    文本登记表 [A9] 六个植入物手术的 RecipeDef 文本
+    挂靠：无。独立词条
+    显示：手术台操作清单上的名字（label）、悬停说明（description）、
+          以及手术进行中的提示（jobString）
+    涉及的 def：_InstallControlSublink、_InstallControlSublinkHigh、_InstallRemoteRepairer、
+                _InstallRemoteShielder、_InstallMechFormfeeder、_InstallRepairProbe
+    英文原文写在 Defs/Recipes_ShipCorePersona.xml 里，这里只放简体中文。
+  -->
+  <ShipCorePersona_InstallControlSublink.label>安装控制子链（标准）</ShipCorePersona_InstallControlSublink.label>
+  <ShipCorePersona_InstallControlSublink.description>给飞船主脑安装标准控制子链。控制组加到 3 组为止。</ShipCorePersona_InstallControlSublink.description>
+  <ShipCorePersona_InstallControlSublink.jobString>正在安装控制子链。</ShipCorePersona_InstallControlSublink.jobString>
+
+  <ShipCorePersona_InstallControlSublinkHigh.label>安装控制子链（高级）</ShipCorePersona_InstallControlSublinkHigh.label>
+  <ShipCorePersona_InstallControlSublinkHigh.description>给飞船主脑安装高级控制子链。她装过 3 级标准控制子链之后，控制组再加到 6 组为止。</ShipCorePersona_InstallControlSublinkHigh.description>
+  <ShipCorePersona_InstallControlSublinkHigh.jobString>正在安装高级控制子链。</ShipCorePersona_InstallControlSublinkHigh.jobString>
+
+  <ShipCorePersona_InstallRemoteRepairer.label>安装远程维修模块</ShipCorePersona_InstallRemoteRepairer.label>
+  <ShipCorePersona_InstallRemoteRepairer.description>给飞船主脑安装远程维修模块。装好之后，她待在飞船电脑核心里，也能远程维修自己的机械族。她的手工越高，机械族就修得越快。</ShipCorePersona_InstallRemoteRepairer.description>
+  <ShipCorePersona_InstallRemoteRepairer.jobString>正在安装远程维修模块。</ShipCorePersona_InstallRemoteRepairer.jobString>
+
+  <ShipCorePersona_InstallRemoteShielder.label>安装远程护盾模块</ShipCorePersona_InstallRemoteShielder.label>
+  <ShipCorePersona_InstallRemoteShielder.description>给飞船主脑安装远程护盾模块。</ShipCorePersona_InstallRemoteShielder.description>
+  <ShipCorePersona_InstallRemoteShielder.jobString>正在安装远程护盾模块。</ShipCorePersona_InstallRemoteShielder.jobString>
+
+  <ShipCorePersona_InstallMechFormfeeder.label>安装机械培育处理器</ShipCorePersona_InstallMechFormfeeder.label>
+  <ShipCorePersona_InstallMechFormfeeder.description>给飞船主脑安装机械培育处理器。</ShipCorePersona_InstallMechFormfeeder.description>
+  <ShipCorePersona_InstallMechFormfeeder.jobString>正在安装机械培育处理器。</ShipCorePersona_InstallMechFormfeeder.jobString>
+
+  <ShipCorePersona_InstallRepairProbe.label>安装维修探针</ShipCorePersona_InstallRepairProbe.label>
+  <ShipCorePersona_InstallRepairProbe.description>给飞船主脑安装维修探针。装上之后，她维修机械族会更快。</ShipCorePersona_InstallRepairProbe.description>
+  <ShipCorePersona_InstallRepairProbe.jobString>正在安装维修探针。</ShipCorePersona_InstallRepairProbe.jobString>
+</LanguageData>

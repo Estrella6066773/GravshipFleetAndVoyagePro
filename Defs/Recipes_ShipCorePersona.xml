@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <RecipeDef Name="ShipCorePersonaInstallBase" ParentName="SurgeryInstallImplantBase" Abstract="True">
+    <workerClass>ShipCorePersona.Recipe_InstallCorePersonaImplant</workerClass>
+    <anesthetize>false</anesthetize>
+  </RecipeDef>
+
+  <RecipeDef ParentName="ShipCorePersonaInstallBase">
+    <defName>ShipCorePersona_InstallControlSublink</defName>
+    <label>install control sublink (standard)</label>
+    <description>Install a standard control sublink into the ship core persona. Standard sublinks raise the control group count up to 3.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ControlSublink</ThingDef>
+      <HediffDef>ControlSublinkImplant</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing control sublink.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ControlSublink</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>ControlSublink</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <addsHediff>ControlSublinkImplant</addsHediff>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+  </RecipeDef>
+
+  <RecipeDef ParentName="ShipCorePersonaInstallBase">
+    <defName>ShipCorePersona_InstallControlSublinkHigh</defName>
+    <label>install control sublink (high)</label>
+    <description>Install a high-tier control sublink into the ship core persona. This continues from 3 control-group levels up to 6.</description>
+    <descriptionHyperlinks>
+      <ThingDef>ControlSublinkHigh</ThingDef>
+      <HediffDef>ControlSublinkImplant</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing high control sublink.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ControlSublinkHigh</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>ControlSublinkHigh</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <addsHediff>ControlSublinkImplant</addsHediff>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+  </RecipeDef>
+
+  <RecipeDef ParentName="ShipCorePersonaInstallBase">
+    <defName>ShipCorePersona_InstallRemoteRepairer</defName>
+    <label>install remote repairer</label>
+    <description>Install a remote repairer into the ship core persona. The persona can then repair their mechs from inside the core. Crafting skill sets the repair speed.</description>
+    <descriptionHyperlinks>
+      <ThingDef>RemoteRepairer</ThingDef>
+      <HediffDef>RemoteRepairerImplant</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing remote repairer.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RemoteRepairer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>RemoteRepairer</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <addsHediff>RemoteRepairerImplant</addsHediff>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+  </RecipeDef>
+
+  <RecipeDef ParentName="ShipCorePersonaInstallBase">
+    <defName>ShipCorePersona_InstallRemoteShielder</defName>
+    <label>install remote shielder</label>
+    <description>Install a remote shielder into the ship core persona.</description>
+    <descriptionHyperlinks>
+      <ThingDef>RemoteShielder</ThingDef>
+      <HediffDef>RemoteShielderImplant</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing remote shielder.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RemoteShielder</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>RemoteShielder</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <addsHediff>RemoteShielderImplant</addsHediff>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+  </RecipeDef>
+
+  <RecipeDef ParentName="ShipCorePersonaInstallBase">
+    <defName>ShipCorePersona_InstallMechFormfeeder</defName>
+    <label>install mech gestation processor</label>
+    <description>Install a mech gestation processor into the ship core persona.</description>
+    <descriptionHyperlinks>
+      <ThingDef>MechFormfeeder</ThingDef>
+      <HediffDef>MechFormfeederImplant</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing mech gestation processor.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MechFormfeeder</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MechFormfeeder</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <addsHediff>MechFormfeederImplant</addsHediff>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+  </RecipeDef>
+
+  <RecipeDef ParentName="ShipCorePersonaInstallBase">
+    <defName>ShipCorePersona_InstallRepairProbe</defName>
+    <label>install repair probe</label>
+    <description>Install a repair probe into the ship core persona. This increases mech repair speed.</description>
+    <descriptionHyperlinks>
+      <ThingDef>RepairProbe</ThingDef>
+      <HediffDef>RepairProbeImplant</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing repair probe.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RepairProbe</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>RepairProbe</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <addsHediff>RepairProbeImplant</addsHediff>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+  </RecipeDef>
+
+</Defs>

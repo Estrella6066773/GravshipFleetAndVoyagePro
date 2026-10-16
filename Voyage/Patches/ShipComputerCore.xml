@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  人格一半（需要 Gravship Voyage）：改造飞船电脑核心，给它安上飞船主脑。
+
+  这份补丁放在 Voyage 目录里，由 LoadFolders.xml 的 IfModActive="asunib.GravshipVoyage" 决定加不加载。
+  没装 Gravship Voyage 时它完全不加载，飞船电脑核心保持原样：不装人格组件、不改放置规则。
+
+  分家的理由：飞船主脑的机械师身份与 20 点机械带宽来自 Voyage 的人格芯片，电脑核心能当驾驶台
+  也是 Voyage 给它加上的，离开 Voyage 这些内容都无从谈起。同理，这个文件里那处「电脑核心还没有
+  逆重设施组件时才补一个」的兜底判断，也是为 Voyage 有与没有两种情况写的，所以它同样只在装了
+  Voyage 时才有意义。
+-->
+<Patch>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName="Ship_ComputerCore"]/comps</xpath>
+    <value>
+      <li Class="ShipCorePersona.CompProperties_ShipCorePersona" />
+    </value>
+  </Operation>
+
+  <!-- 去掉「不能盖在屋顶下」。室内和逆重飞船舱内都可以放置飞船电脑核心。 -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="Ship_ComputerCore"]/placeWorkers/li[text()="PlaceWorker_NotUnderRoof"]</xpath>
+    <match Class="PatchOperationRemove">
+      <xpath>/Defs/ThingDef[defName="Ship_ComputerCore"]/placeWorkers/li[text()="PlaceWorker_NotUnderRoof"]</xpath>
+    </match>
+  </Operation>
+
+  <!-- 原版只接受重型地面。逆重飞船基架没有重型这个标记。先把地面要求去掉，再由 PlaceWorker 同时接受这两种地面。 -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="Ship_ComputerCore"]/terrainAffordanceNeeded</xpath>
+    <match Class="PatchOperationRemove">
+      <xpath>/Defs/ThingDef[defName="Ship_ComputerCore"]/terrainAffordanceNeeded</xpath>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="Ship_ComputerCore"]/placeWorkers</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="Ship_ComputerCore"]/placeWorkers</xpath>
+      <value>
+        <li>ShipCorePersona.PlaceWorker_ShipComputerCore</li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="Ship_ComputerCore"]</xpath>
+      <value>
+        <placeWorkers>
+          <li>ShipCorePersona.PlaceWorker_ShipComputerCore</li>
+        </placeWorkers>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- 一艘逆重飞船要能同时连多台电脑核心，关键在于 maxSimultaneous：它管的是「同一种设施能同时连到同一个逆重引擎几台」。
+       Voyage 给电脑核心加上的驾驶台组件（compClass 为 CompPilotConsole，本体就是一份 CompProperties_GravshipFacility）写的是 1，
+       于是每台引擎只认一台核心：后摆的核心连不上引擎，驾驶台是灰的，也就带不动船。
+       这里把那个 1 换成 9999，后摆的核心照样连上，每台核心各自带一个飞船主脑，机械师能力与指挥范围一致。
+
+       顺序要紧：本模组 loadAfter Gravship Voyage，所以这条替换改的正是 Voyage 写下的那个 1。
+       将来 Voyage 若换了写法，匹配不到时日志里会出现一句本模组的 Patch operation failed，不会静默失效。 -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThingDef[defName="Ship_ComputerCore"]/comps/li[compClass="CompPilotConsole"]/maxSimultaneous</xpath>
+    <value>
+      <maxSimultaneous>9999</maxSimultaneous>
+    </value>
+  </Operation>
+
+  <!-- 兜底：万一电脑核心一份逆重设施组件都没有（Voyage 改了写法），就补一份自己的。
+       加出来的这份不占驾驶台的控制槽，只负责把 maxSimultaneous 撑开。 -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="Ship_ComputerCore"]/comps/li[@Class="CompProperties_GravshipFacility" or compClass="CompPilotConsole"]</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="Ship_ComputerCore"]/comps</xpath>
+      <value>
+        <li Class="CompProperties_GravshipFacility">
+          <requiresLOS>false</requiresLOS>
+          <showMaxSimultaneous>false</showMaxSimultaneous>
+          <maxSimultaneous>9999</maxSimultaneous>
+          <maxDistance>500</maxDistance>
+        </li>
+      </value>
+    </nomatch>
+  </Operation>
+
+  <!-- 和休眠舱一样：选中飞船电脑核心时，可以再选中里面的飞船主脑。 -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName="Ship_ComputerCore"]</xpath>
+    <value>
+      <containedPawnsSelectable>true</containedPawnsSelectable>
+    </value>
+  </Operation>
+
+</Patch>

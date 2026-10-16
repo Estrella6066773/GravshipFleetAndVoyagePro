@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════════
+    文本登记表（简体中文）
+    ═══════════════════════════════════════════════════════════════════
+    本模组所有面向玩家的文本都在本文件与 DefInjected 里，代码中不写死任何句子。
+    每条文本都写明「挂在原版哪一段文本后面」与「显示在哪里」。
+
+    [1] GravEngine.description   见 Languages/ChineseSimplified/DefInjected/ThingDef/GravEngine.xml
+        挂靠：原版逆重引擎描述全文末尾，紧接在「若未建造逆重锚，发射逆重飞船将永久弃置当前地图。」之后
+        显示：逆重引擎的信息卡
+        内容：另一台逆重引擎的场域稳定作用，含厚岩顶与随后塌落
+
+    [2] GravAnchor.description   见 Languages/ChineseSimplified/DefInjected/ThingDef/GravAnchor.xml
+        挂靠：原版逆重锚描述全文末尾
+        显示：逆重锚的信息卡
+        内容：写明逆重锚的优先级高于逆重引擎的场域稳定作用
+
+    [3] GravshipFleetPro_MapRetained   本文件
+        挂靠：无。独立词条，不接在任何原版文本后面
+        显示：保留地图时的一条屏幕消息
+
+    [4] GravshipFleetPro_SettingsCategory 及以下 5 条设置项文本   本文件
+        挂靠：无。独立词条
+        显示：模组设置窗口
+        其中 GravshipFleetPro_Setting_NeedsFleet 只在没装 Gravship Fleet 时显示，
+        说明舰队一半停用、其余设置不起作用。
+
+    塌方本身不另造文本：沿用原版的 RoofCollapsed 信件与 TheseThingsCrushed 列表。
+    英文对照在 Languages/English 下的同名文件里，键名一一对应。
+  -->
+
+  <GravshipFleetPro_SettingsCategory>逆重舰队 Pro</GravshipFleetPro_SettingsCategory>
+
+  <GravshipFleetPro_Setting_NeedsFleet>这一页设置属于舰队一半，需要 Gravship Fleet。没有启用它时，舰队一半停用，下面的设置不起作用。</GravshipFleetPro_Setting_NeedsFleet>
+
+  <GravshipFleetPro_Setting_RetainMap>还有另一台逆重引擎时保留地图</GravshipFleetPro_Setting_RetainMap>
+  <GravshipFleetPro_Setting_RetainMapDesc>关闭后恢复原版行为：只要发射逆重飞船就弃置当前地图，留在图上的人和建筑一并失去。</GravshipFleetPro_Setting_RetainMapDesc>
+
+  <GravshipFleetPro_Setting_CollapseDelay>起飞后延迟塌落：{0} 秒</GravshipFleetPro_Setting_CollapseDelay>
+  <GravshipFleetPro_Setting_CollapseDelayDesc>厚岩顶立起来之后过多久塌落成岩石。设为 0 就是起飞结束立刻塌。</GravshipFleetPro_Setting_CollapseDelayDesc>
+
+  <GravshipFleetPro_MapRetained>另一台逆重引擎的场域钉住了地面：地图保留，起飞点塌陷。</GravshipFleetPro_MapRetained>
+
+</LanguageData>

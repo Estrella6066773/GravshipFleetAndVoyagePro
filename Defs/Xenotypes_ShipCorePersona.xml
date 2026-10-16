@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- 飞船主脑的异种人。基因列表留空：Pawn_GeneTracker.SetXenotype 会记下这个定义，列表为空时不会改回基线人。读档时只有异种人引用是空的，才会写成 Baseliner。
+       图标对照生物技术 XenotypeIconDef Basic 的 texPath。GeneCreationDialogBase.PreOpen 新建异种人时把当前图标设成 XenotypeIconDefOf.Basic。基线人 Baseliner 用的是 UI/Icons/Xenotypes/Baseliner，不是这一张。
+       factionlessGenerationWeight 默认是 1。写成 0，无派系人物生成不会抽到核心人格。PawnGenerator.GenerateGenes 在 SetXenotype 之后仍会补上肤色和发色两种系谱基因，PersonaAppearance.EnsureXenotype 再把异种基因和系谱基因清掉。 -->
+  <XenotypeDef>
+    <defName>ShipCorePersonaXenotype</defName>
+    <label>core persona</label>
+    <description>Core persona is the ship mind's xenotype. Her xenogene list is empty, and her endogene list is empty.</description>
+    <descriptionShort>The ship mind's xenotype. Her xenogene list and her endogene list are both empty.</descriptionShort>
+    <iconPath>UI/Icons/Xenotypes/Other</iconPath>
+    <factionlessGenerationWeight>0</factionlessGenerationWeight>
+  </XenotypeDef>
+
+</Defs>
