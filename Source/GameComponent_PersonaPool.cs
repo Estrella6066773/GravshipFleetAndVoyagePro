@@ -121,8 +121,16 @@ namespace ShipCorePersona
                     for (int i = relations.Count - 1; i >= 0; i--)
                     {
                         DirectPawnRelation relation = relations[i];
-                        if (relation.otherPawn == persona)
-                            pawn.relations.TryRemoveDirectRelation(relation.def, persona);
+                        if (relation.otherPawn != persona)
+                            continue;
+                        if (relation.def == null || !ReflexiveRemovalIsSafe(persona, pawn, relation.def))
+                        {
+                            // 记录本身已经残缺（关系定义没了，或对方的关系表空着），交回原版只会抛异常。
+                            relations.RemoveAt(i);
+                            continue;
+                        }
+
+                        pawn.relations.TryRemoveDirectRelation(relation.def, persona);
                     }
                 }
 
@@ -136,6 +144,33 @@ namespace ShipCorePersona
                         memories.RemoveMemory(thought);
                 }
             });
+        }
+
+        /// <summary>
+        /// 删「监督者」这类 reflexive 关系之前，先确认原版那条路走得通。
+        /// 原版 TryRemoveDirectRelation 遇上 reflexive 关系，会直接去取对方那一侧的关系记录：
+        /// 对方的关系表为空、或那边缺了这条镜像记录，它都会当场抛 NullReferenceException
+        /// （异常抛在 RimWorld.Pawn_RelationsTracker 里，外层兜不住，读档恢复会被打断）。
+        /// 飞船主脑会被反复收进人物池再放出来，她那一侧缺镜像记录很常见。所以先替她补上镜像，
+        /// 原版随后就会按自己那套把两侧一起删干净，并照常通知机械族脱离控制组。
+        /// 她已经被销毁、连关系表都没有时补不了，返回 false，让调用处只摘掉自己那一侧的记录。
+        /// </summary>
+        private static bool ReflexiveRemovalIsSafe(Pawn persona, Pawn other, PawnRelationDef def)
+        {
+            if (!def.reflexive)
+                return true;
+            if (persona?.relations == null || persona.Destroyed)
+                return false;
+
+            List<DirectPawnRelation> mirrored = persona.relations.DirectRelations;
+            for (int i = 0; i < mirrored.Count; i++)
+            {
+                if (mirrored[i].def == def && mirrored[i].otherPawn == other)
+                    return true;
+            }
+
+            mirrored.Add(new DirectPawnRelation(def, other, Find.TickManager?.TicksGame ?? 0));
+            return true;
         }
 
         private static void EachPawn(System.Action<Pawn> action)

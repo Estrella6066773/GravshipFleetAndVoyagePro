@@ -20,7 +20,7 @@ namespace ShipCorePersona
         static ModEntry()
         {
             Harmony harmony = new Harmony(HarmonyId);
-            PatchAssembly(harmony, Assembly.GetExecutingAssembly());
+            int patched = PatchAssembly(harmony, Assembly.GetExecutingAssembly());
 
             if (ModHalves.VoyageActive)
             {
@@ -31,18 +31,25 @@ namespace ShipCorePersona
             }
 
             Log.Message("[GravshipFleetPro] 已挂载：" + (ModHalves.FleetActive ? "舰队" : "（未装 Gravship Fleet，舰队一半停用）")
-                + " / " + (ModHalves.VoyageActive ? "人格" : "（未装 Gravship Voyage，人格一半停用）"));
+                + " / " + (ModHalves.VoyageActive ? "人格" : "（未装 Gravship Voyage，人格一半停用）")
+                + "，补丁类 " + patched + " 个");
         }
 
         /// <summary>
-        /// 把程序集里带 [HarmonyPatch] 的类逐个挂上，按半挑选。
+        /// 把程序集里带 [HarmonyPatch] 的类逐个挂上，按半挑选，返回挂上的补丁类个数。
         /// 缺哪一半模组，就跳过标着对应标记的那些补丁类。
+        ///
+        /// 不要按 type.IsAbstract 过滤：C# 的静态类在元数据里就是 abstract sealed，
+        /// 而本模组的补丁类全是静态类，一按 IsAbstract 跳过就会把它们全部漏掉，
+        /// 结果一个补丁都挂不上（人格一半与舰队一半会一起停摆，而且只在日志里留下一句「已挂载」）。
+        /// 除了泛型定义挂不上，其余照 Harmony.PatchAll 的做法一并交给 CreateClassProcessor 处理。
         /// </summary>
-        private static void PatchAssembly(Harmony harmony, Assembly assembly)
+        private static int PatchAssembly(Harmony harmony, Assembly assembly)
         {
+            int patched = 0;
             foreach (Type type in assembly.GetTypes())
             {
-                if (type.IsAbstract || type.IsInterface || type.IsGenericTypeDefinition || type.IsNested)
+                if (type.IsGenericTypeDefinition)
                 {
                     continue;
                 }
@@ -60,7 +67,10 @@ namespace ShipCorePersona
                 }
 
                 harmony.CreateClassProcessor(type).Patch();
+                patched++;
             }
+
+            return patched;
         }
     }
 }

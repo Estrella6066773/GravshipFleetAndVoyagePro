@@ -631,22 +631,47 @@ namespace ShipCorePersona
     }
 
     /// <summary>
-    /// 读档时先生成人物，再生成建筑。飞船主脑站在不可通行的电脑核心上，原版会把核心退成材料。
-    /// 核心落地前先把她挪到占地外面，核心生成后会把她挪回去。
+    /// 读档时先生成人物，再生成建筑。飞船主脑按 PlaceBesideCore 常年站在电脑核心占的那一格上，
+    /// 原版 SpawnBuildingAsPossible 碰到「不可通行建筑的占地里站着人」就把核心退成材料，人物跟着一起没。
+    /// 它还有第二条：占格里只要有「会被这台核心压掉」的建筑或物品（例如从地下穿过去的管线），同样退款。
+    ///
+    /// 这两条判定都用不到读档恢复核心上：核心本来就该回到原格，格上原有的东西也该留着。
+    /// 所以这里不再让它做判定，改为自己做：先把她（以及占格里的其他人）挪到占地外，
+    /// 再自己把核心放回原格。放回时只调 SpawnSetup，不走 GenSpawn.Spawn 那套压格流程，
+    /// 免得把格上原有的东西一并压掉。核心落地后 PostSpawnSetup 里的 PlaceBesideCore 会把她挪回核心上。
     /// </summary>
     [RequiresVoyage]
     [HarmonyPatch(typeof(GenSpawn), nameof(GenSpawn.SpawnBuildingAsPossible))]
     public static class Patch_CoreNotRefundedOnLoad
     {
-        public static void Prefix(Building building, Map map)
+        private const string CoreDefName = "Ship_ComputerCore";
+
+        public static bool Prefix(Building building, Map map, bool respawningAfterLoad)
         {
-            if (map == null || building?.def == null || building.def.passability != Traversability.Impassable)
-                return;
-            if (building.TryGetComp<CompShipCorePersona>() == null)
-                return;
+            if (map == null || building?.def?.defName != CoreDefName)
+                return true;
+            // 位置本身越界时退款是合理的，交回原版；已经在地图上时也交回原版。
+            if (building.Spawned || !building.OccupiedRect().InBounds(map))
+                return true;
 
             CellRect rect = building.OccupiedRect();
-            IntVec3 outside = CellOutside(rect, map);
+            int moved = MovePawnsOutOfRect(rect, map, CellOutside(rect, map));
+            Log.Message("[GravshipFleetPro] 读档恢复飞船电脑核心 " + building.ThingID + " @" + building.Position
+                + "：占格 " + rect.Width + "×" + rect.Height + "，挪开占格的人 " + moved + " 名" + LeftoversAt(rect, map) + "。");
+
+            if (building.holdingOwner != null)
+                building.holdingOwner.Remove(building);
+            building.SpawnSetup(map, respawningAfterLoad);
+            return false;
+        }
+
+        /// <summary>
+        /// 把占地格子上的人（首先是飞船主脑）挪到外面。人叠在同一格会互相挤，所以每挪一个就往旁边错开一点。
+        /// </summary>
+        private static int MovePawnsOutOfRect(CellRect rect, Map map, IntVec3 outside)
+        {
+            int moved = 0;
+            IntVec3 spot = outside;
             foreach (IntVec3 cell in rect)
             {
                 if (!cell.InBounds(map))
@@ -655,10 +680,47 @@ namespace ShipCorePersona
                 List<Thing> things = cell.GetThingList(map);
                 for (int i = things.Count - 1; i >= 0; i--)
                 {
-                    if (things[i] is Pawn pawn && CorePersonaUtility.IsPersona(pawn))
-                        pawn.Position = outside;
+                    if (things[i] is not Pawn pawn || pawn.Destroyed)
+                        continue;
+
+                    pawn.Position = spot;
+                    moved++;
+                    if (CellFinder.TryFindRandomCellNear(spot, map, 3, c => c.InBounds(map) && c.Walkable(map), out IntVec3 next))
+                        spot = next;
                 }
             }
+
+            return moved;
+        }
+
+        /// <summary>
+        /// 占地格上留下来的东西（建筑、物品）写进日志用。它们不让核心生成，但也不该因为读档就消失。
+        /// </summary>
+        private static string LeftoversAt(CellRect rect, Map map)
+        {
+            int count = 0;
+            string names = "";
+            foreach (IntVec3 cell in rect)
+            {
+                if (!cell.InBounds(map))
+                    continue;
+
+                List<Thing> things = cell.GetThingList(map);
+                for (int i = 0; i < things.Count; i++)
+                {
+                    ThingDef def = things[i]?.def;
+                    if (def == null || things[i] is Pawn)
+                        continue;
+                    if (def.category != ThingCategory.Building && def.category != ThingCategory.Item)
+                        continue;
+
+                    count++;
+                    if (count <= 3)
+                        names = names.Length == 0 ? def.defName : names + "、" + def.defName;
+                }
+            }
+
+            return count == 0 ? "" : "，格上原有 " + count + " 件东西（" + names + "）留着不动";
         }
 
         private static IntVec3 CellOutside(CellRect rect, Map map)
