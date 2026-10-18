@@ -6,6 +6,7 @@
   <modVersion>2.0.0</modVersion>
   <supportedVersions>
     <li>1.7</li>
+    <li>1.6</li>
   </supportedVersions>
   <description>本模组分别优化了Gravship Fleet和Gravship Voyage，会在安装对应mod时自动生效。
 
@@ -17,7 +18,9 @@
 
 3. 注意！！！如果只有一艘飞船时起飞，仍然会摧毁没有逆重锚的地图。
 
-【飞船核心人格】需要 Gravship Voyage：
+4. 和Gravship Voyage一同启用时，纠正飞船电脑核心的判定逻辑，使其判定正确的飞船。
+
+【飞船电脑核心优化】需要 Gravship Voyage：
 
 1. 优化Gravship Voyage提供的人工智能，使其能够更加灵活的指挥机械族。
 
@@ -32,6 +35,36 @@
 6. 当飞船电脑核心连接到飞船时，会将飞船的逆重引擎和延展器视为信号基站，但电脑核心本身不再提供指挥区域。
 
 7. 当飞船电脑核心连接到飞船时，它的机械族会在保护模式下聚集在它所连接的逆重飞船上,而不是聚集在飞船电脑核心周围。
+
+------------ English ------------
+
+This mod improves Gravship Fleet and Gravship Voyage separately; each half takes effect when the matching mod is installed.
+
+[Fleet improvements] Requires Gravship Fleet:
+
+1. Lets a gravship take off from a map that still holds other grav engines without abandoning that map. The launch tears the ground open instead, leaving a raised slab of rock that then collapses. If the map is in space, the ground the ship stood on is destroyed outright. A grav anchor on the map prevents both.
+
+2. Fixes gravship components that went inert on a map with more than one engine because of a faulty check.
+
+3. Note!!! If the ship lifting off is the only one on the map, a map without a grav anchor is still abandoned.
+
+4. With Gravship Voyage also active, corrects how the ship computer core decides which ship it belongs to, so that it picks the right one.
+
+[Computer core improvements] Requires Gravship Voyage:
+
+1. Improves the AI that Gravship Voyage provides, so it can command mechanoids more flexibly.
+
+2. More mechanitor implants can be stored in the ship computer core to strengthen the AI, and they can be taken back out at any time for use elsewhere.
+
+3. The AI is given 10 Crafting for abilities such as remote repair, so that once an implant is installed it can repair mechanoids at a distance.
+
+4. The ship computer core can be built under a roof.
+
+5. A single gravship can carry more than one computer core.
+
+6. Once the ship computer core is connected to a ship, that ship's grav engines and grav field extenders act as signal relays for it. The core itself no longer provides a command area.
+
+7. Once the ship computer core is connected to a ship, in guard mode its mechanoids gather on the gravship it is connected to rather than around the core itself.
 </description>
   <modDependencies>
     <li>
