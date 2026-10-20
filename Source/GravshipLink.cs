@@ -159,9 +159,21 @@ namespace ShipCorePersona
         /// <summary>核心整个占地都在这台引擎的有效基架上。</summary>
         public static bool Covers(Building_GravEngine engine, Thing core)
         {
-            if (engine == null || core == null || !engine.Spawned)
+            if (engine == null || core == null || !engine.Spawned || !core.Spawned)
                 return false;
-            return engine.OnValidSubstructure(core);
+            // 这里只做几何判据，不能用 OnValidSubstructure：它读 ValidSubstructure，
+            // 会顺带 UpdateSubstructureIfNeeded(regenerateSectionLayers: true)，
+            // 在 MapDrawer 里重建 GravshipMask / GravshipHull / SubstructureProps 三层。
+            // 读档时 Map.FinalizeInit 跑在 LongEventHandler 的后台线程，CanLinkTo 走到这里，
+            // 在非主线程取 Unity 材质会抛「Tried to get a material from a different thread」，
+            // 图层重建本身也会失败。认主判定只要知道核心是否落在有效基架上，用不重建图层的集合即可。
+            HashSet<IntVec3> substructure = engine.ValidSubstructureNoRegen;
+            foreach (IntVec3 cell in core.OccupiedRect())
+            {
+                if (!substructure.Contains(cell))
+                    return false;
+            }
+            return true;
         }
 
         /// <summary>这台引擎是这台核心唯一的归属。核心不在地图上、或没有任何引擎覆盖它时都不算。</summary>
