@@ -30,9 +30,10 @@
       <HintPath>$(RimWorldPath)\UnityStubs.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <PackageReference Include="Lib.Harmony" Version="2.4.2">
-      <ExcludeAssets>runtime</ExcludeAssets>
-    </PackageReference>
+    <Reference Include="0Harmony">
+      <HintPath>E:\SteamLibrary\steamapps\workshop\content\294100\2009463077\1.7\Assemblies\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
 
 </Project>
